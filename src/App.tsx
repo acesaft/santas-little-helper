@@ -108,7 +108,7 @@ const App = () => {
             <tbody>
             {cart.map((cartItem) => {
               return (
-                <tr className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border dark:border-gray-700">
+                <tr className="odd:bg-white even:bg-gray-50 border">
                   <th scope="row" className="min-w-[250px] px-2 py-4 font-medium text-gray-900">
                     <p className="text-sm font-semibold text-gray-900">{cartItem.label}</p>
                     <p className="mt-1 text-xs text-gray-500">{cartItem.subLabel}</p>
