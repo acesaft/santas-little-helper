@@ -90,15 +90,26 @@ const App = () => {
     },
   ]
 
+  const getDrinkAmount = (label: string) => {
+    const amount = [...cart].filter((item) => {
+      return item.label === label
+    })
+    return amount.length
+  }
+
   return (
     <div className="flex flex-col h-screen overflow-hidden">
       <header className="w-full text-center p-4 mb-1">
         <div className="flex align-middle justify-center">
           {drinks.map((drink) => {
-            return <button onClick={addItemToCart(drink)} className={`mr-4 rounded-md ${drink.color} p-6 sm:p-4 text-lg sm:text-sm font-semibold text-white shadow-sm hover:bg-indigo-500`}>
-              <p>{drink.label}</p>
-              <p>{drink.subLabel}</p>
-            </button>
+            return (
+              <div>
+                <button onClick={addItemToCart(drink)} className={` min-w-[100px] mr-4 rounded-md ${drink.color} p-6 sm:p-4 text-lg sm:text-sm font-semibold text-white shadow-sm hover:bg-indigo-500`}>
+                  <p>{drink.label}</p>
+                  <p>{drink.subLabel}</p>
+                  {getDrinkAmount(drink.label) > 0 ? getDrinkAmount(drink.label) : null}
+                </button>
+              </div>)
           })}
         </div>
       </header>
